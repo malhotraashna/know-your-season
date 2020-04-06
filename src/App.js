@@ -1,11 +1,9 @@
 import React from 'react';
-import './App.css';
+import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { latitude: null, error: null };
-  }
+  state = { latitude: null, error: null };
 
   componentDidMount() {
     //fetch location
@@ -28,10 +26,10 @@ class App extends React.Component {
       <div>
         {
           this.state.latitude ?
-            `Latitude : ${this.state.latitude}` :
+            <SeasonDisplay latitude={this.state.latitude} /> :
             this.state.error ?
               `Error: ${this.state.error}` :
-              'Fetching...'
+              <Spinner message="Please accept location request." />
         }
       </div>
     );
