@@ -28,7 +28,7 @@ class App extends React.Component {
           this.state.latitude ?
             <SeasonDisplay latitude={this.state.latitude} /> :
             this.state.error ?
-              `Error: ${this.state.error}` :
+              <div>Error: {this.state.error}</div> :
               <Spinner message="Please accept location request." />
         }
       </div>
